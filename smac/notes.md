@@ -1,0 +1,1 @@
+- 1500 trials are more than enough for the default CS to converge

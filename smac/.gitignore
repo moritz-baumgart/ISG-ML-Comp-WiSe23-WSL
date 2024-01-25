@@ -1,0 +1,5 @@
+# Ignore SMAC output directories
+smac3*/
+
+# Ignore catboost output/data directory
+catboost_info/

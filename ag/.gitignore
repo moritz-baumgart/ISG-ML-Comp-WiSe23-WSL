@@ -1,0 +1,3 @@
+# Ignore AutoGluon Model directory;
+# If you need any of these message me, the directory is just too large for git
+AutogluonModels/

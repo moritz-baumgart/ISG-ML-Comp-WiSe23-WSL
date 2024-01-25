@@ -1,0 +1,63 @@
+###############################################################
+
+This was the error message I kept getting when I tried lk-auto
+
+###############################################################
+
+
+
+
+2023-12-18 03:44:10,130 INFO ---Starting LensKit-Auto---
+2023-12-18 03:44:10,130 INFO     optimization_time:              2700 seconds
+2023-12-18 03:44:10,130 INFO     num_evaluations:                        500
+2023-12-18 03:44:10,130 INFO     optimization_metric:            rmse
+2023-12-18 03:44:10,130 INFO     optimization_strategie:         bayesian
+2023-12-18 03:44:10,130 DEBUG initializing filer
+2023-12-18 03:44:10,131 DEBUG initializing random_state
+2023-12-18 03:44:10,131 INFO --Start Preprocessing--
+2023-12-18 03:44:10,137 INFO --End Preprocessing--
+2023-12-18 03:44:10,138 INFO --Start Bayesian Optimization--
+2023-12-18 03:58:11,639 DEBUG initializing default ConfigurationSpace
+Numba is using threading layer omp - consider TBB
+BLAS using multiple threads - can cause oversubscription
+found 2 potential runtime problems - see https://boi.st/lkpy-perf
+2023-12-18 04:04:30,150 INFO Run ID: 1 | ItemItem | rmse: 1.014631886166101
+2023-12-18 04:04:30,150 DEBUG Configuration(values={
+  'ItemItem:min_nbrs': 1,
+  'ItemItem:min_sim': 1e-06,
+  'ItemItem:nnbrs': 1000,
+  'algo': 'ItemItem',
+})
+2023-12-18 04:14:29,213 INFO Run ID: 2 | UserUser | rmse: 0.9350789899332898
+2023-12-18 04:14:29,213 DEBUG Configuration(values={
+  'UserUser:min_nbrs': 1,
+  'UserUser:min_sim': 1e-06,
+  'UserUser:nnbrs': 1000,
+  'algo': 'UserUser',
+})
+Traceback (most recent call last):
+  File "/home/moritzb/MLComp/lkauto/auto.py", line 12, in <module>
+    get_best_prediction_model(df, log_level='DEBUG')
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/lkauto/lkauto.py", line 167, in get_best_prediction_model
+    incumbent, top_n_runs = bayesian_optimization(train=train,
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/lkauto/optimization_strategies/bayesian_optimization.py", line 143, in bayesian_optimization
+    smac.optimize()
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/facade/smac_ac_facade.py", line 723, in optimize
+    incumbent = self.solver.run()
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/optimizer/smbo.py", line 307, in run
+    self._incorporate_run_results(run_info, result, time_left)
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/optimizer/smbo.py", line 517, in _incorporate_run_results
+    self.incumbent, inc_perf = self.intensifier.process_results(
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/intensification/intensification.py", line 524, in process_results
+    incumbent = self._process_racer_results(
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/intensification/intensification.py", line 799, in _process_racer_results
+    new_incumbent = self._compare_configs(
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/intensification/abstract_racer.py", line 393, in _compare_configs
+    self._log_incumbent_changes(incumbent, challenger)
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/intensification/abstract_racer.py", line 410, in _log_incumbent_changes
+    params = sorted([(param, incumbent[param], challenger[param]) for param in challenger.keys()])
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/smac/intensification/abstract_racer.py", line 410, in <listcomp>
+    params = sorted([(param, incumbent[param], challenger[param]) for param in challenger.keys()])
+  File "/home/moritzb/miniconda3/envs/lkauto/lib/python3.9/site-packages/ConfigSpace/configuration.py", line 191, in __getitem__
+    raise KeyError(key)
+KeyError: 'UserUser:min_nbrs' 
