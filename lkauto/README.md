@@ -1,0 +1,3 @@
+### LensKit-Auto
+
+In this directory I tried to work with [lenskit-auto](https://github.com/ISG-Siegen/lenskit-auto). Unfortunately it always kept crashing after the first model, likely due to some dependency version conflict, which I was not able to resolve yet. The error when it crashed can be found in `error_message.txt`. Other than that there is not a lot of code to it, except `auto.py`, which just starts lenskit-auto and gives it the dataset.
